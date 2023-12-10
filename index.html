@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HTML Dictionary</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #menu {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 10px;
+            width: calc(100% - 40px);
+            max-width: 800px;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #menu .menu-item {
+            margin: 0 10px;
+            padding: 5px 10px;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 3px;
+        }
+
+        #menu .menu-item:hover,
+        #menu .menu-item:focus {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 800px) {
+            .container {
+                width: 100%;
+                padding: 0 20px;
+            }
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            max-width: 100%;
+            width: 800px;
+        }
+
+        .dictionary-entry {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .term {
+            color: #007bff;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .category {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            background-color: #e9f5ff;
+            color: #007bff;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+
+        .definition,
+        .example,
+        .note {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .example strong,
+        .note strong {
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body style="height: 8000px;">
+
+    <div class="container">
+        <div id="menu">
+        </div>
+
+        <div id="intro">
+        </div>
+
+        <div id="dictionary">
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+        const dictionaryEntries = [
+            {
+                word: 'Syntetika',
+                category: 'geometrie',
+                definition: 'Technika řešení geometrických úloh nepoužívající analytickou geometrii, barycentrické souřadnice ani jiné výpočetní techniky.',
+                example: 'Geometrické úlohy v matematické olympiádě jsou vybrané tak, aby měly pěkné syntetické řešení.'
+            },
+            {
+                word: 'Kamarádi',
+                category: 'geometrie',
+                definition: 'Dva body jsou v daném mnohoúhelníku kamarádi pokud pro každý vrchol platí že přímky spojující tento vrchol s danými body jsou izogonální v úhlu při daném vrcholu (izogonální přímky v daném úhlu jsou přímky procházející vrcholem daného úhlu, které jsou navíc osově symetrické podle osy úhlu).',
+                example: 'Body H a O sú kamarádi.'
+            },
+            {
+                word: 'Kóši',
+                category: 'algebra',
+                definition: 'Krátké a počeštěné označení pro Cauchy-Schwarzovu nerovnost.',
+                example: 'Pomůckou pro zapamatování si kóšiho zní: „Dvě závorky jsou víc než jedna.”',
+                note: 'Augustin Louis Cauchy byl francouzský matematik. Byl průkopníkem matematické analýzy.',
+                additional: 'Použil som Koši na vyriešenie úlohy.'
+            },
+            {
+                word: 'Legendrák',
+                category: 'teorie čísel',
+                definition: 'Hovorové označení pro Legendrův symbol (symbol, který vyjadřuje, zda je číslo kvadratický zbytek modulo nějaké číslo).',
+                example: 'Věta o kvadratické reciprocitě se zapisuje pomocí legendráků.'
+            }
+        ];
+
+        // Function to sort and categorize the dictionary
+        function categorizeDictionary(entries) {
+            // Sort the entries alphabetically
+            entries.sort((a, b) => a.word.localeCompare(b.word));
+
+            // Categorize by the first letter
+            const categorized = {};
+            entries.forEach(entry => {
+                const firstLetter = entry.word.charAt(0).toUpperCase();
+                if (!categorized[firstLetter]) {
+                    categorized[firstLetter] = [];
+                }
+                categorized[firstLetter].push(entry);
+            });
+            return categorized;
+        }
+
+        // Use the function to get a sorted and categorized dictionary
+        const dictionary = categorizeDictionary(dictionaryEntries)
+
+        // Function to create the A-Z menu
+        function createMenu() {
+            const menu = document.getElementById('menu');
+            for (let i = 65; i <= 90; i++) {
+                let letter = String.fromCharCode(i);
+                let menuItem = document.createElement('span');
+                menuItem.classList.add('menu-item');
+                menuItem.innerText = letter;
+                menuItem.onclick = () => scrollToElement(
+                    document.getElementById('letter-' + letter),
+                    -document.getElementById('menu').offsetHeight - 20
+                );
+                menu.appendChild(menuItem);
+            }
+        }
+
+        function scrollToElement(element, offset) {
+            const elementPosition = element.offsetTop + offset;
+
+            window.scrollTo({
+                top: elementPosition,
+                behavior: 'smooth'
+            });
+        }
+
+        function adjustIntroPosition() {
+            var menuHeight = document.getElementById('menu').offsetHeight + 40;
+            document.getElementById('intro').style.marginTop = menuHeight + 'px';
+        }
+
+        window.onload = adjustIntroPosition;
+        window.onresize = adjustIntroPosition;
+
+        function displayDictionary() {
+            const dictionaryDiv = document.getElementById('dictionary');
+            for (let letter in dictionary) {
+                let letterSection = document.createElement('div');
+                letterSection.id = 'letter-' + letter;
+                letterSection.className = "letter"
+                let header = document.createElement('h3');
+                header.innerText = letter;
+                letterSection.appendChild(header);
+
+                dictionary[letter].forEach(entry => {
+                    // Create the main dictionary entry container
+                    let entryDiv = document.createElement('div');
+                    entryDiv.className = 'dictionary-entry';
+
+                    // Create and append the term (word)
+                    let term = document.createElement('h2');
+                    term.className = 'term';
+                    term.textContent = entry.word;
+                    entryDiv.appendChild(term);
+
+                    // Create and append the category
+                    if (entry.category) {
+                        let category = document.createElement('span');
+                        category.className = 'category';
+                        category.textContent = `${entry.category}`;
+                        entryDiv.appendChild(category);
+                    }
+
+                    // Create and append the definition
+                    let definition = document.createElement('p');
+                    definition.className = 'definition';
+                    definition.textContent = `${entry.definition}`;
+                    entryDiv.appendChild(definition);
+
+                    // Create and append the example, if it exists
+                    if (entry.example) {
+                        let example = document.createElement('p');
+                        example.className = 'example';
+                        example.innerHTML = `<strong>Příklad:</strong> ${entry.example}`;
+                        entryDiv.appendChild(example);
+                    }
+
+                    // Create and append the note, if it exists
+                    if (entry.note) {
+                        let note = document.createElement('p');
+                        note.className = 'note';
+                        note.innerHTML = `<strong>Poznámka:</strong> ${entry.note}`;
+                        entryDiv.appendChild(note);
+                    }
+
+                    // Append the entire entry to the letter section
+                    letterSection.appendChild(entryDiv);
+                });
+
+                dictionaryDiv.appendChild(letterSection);
+            }
+        }
+
+        createMenu();
+        displayDictionary();
+    </script>
+
+</body>
+
+</html>
