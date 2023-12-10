@@ -1,7 +1,14 @@
 // Function to sort and categorize the dictionary
 function categorizeDictionary(entries) {
     // Sort the entries alphabetically
-    entries.sort((a, b) => a.word.localeCompare(b.word));
+    entries.sort((a, b) => {
+        const first_letter = a.word.charAt(0).toUpperCase().localeCompare(b.word.charAt(0).toUpperCase());
+
+        if (first_letter != 0)
+            return first_letter;
+        else
+            return a.word.localeCompare(b.word);
+    });
 
     // Categorize by the first letter
     const categorized = {};

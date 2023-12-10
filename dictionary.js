@@ -5,7 +5,7 @@ const dictionaryEntries = [
         "definition": "Hovorové označení pro geometrii, jakožto jednu ze čtyř hlavních oblastí olympiádní matematiky. Je odvozené od písmene g, kterým začíná anglické slovo geometry neboli geometrie.",
         "example": "Géčko je pro mnohé matematiky nejoblíbenější oblastí.",
         "note": ""
-    },    
+    },
     {
         "word": "Céčko",
         "category": "kombinatorika",
