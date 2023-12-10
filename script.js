@@ -30,7 +30,7 @@ function createMenu() {
     });
 
     // Convert the Set to an array and sort it
-    const sortedLetters = Array.from(uniqueLetters).sort();
+    const sortedLetters = Array.from(uniqueLetters).sort((a, b) => a.localeCompare(b));
 
     // Create menu items for each unique letter
     sortedLetters.forEach(letter => {
