@@ -24,6 +24,12 @@ function createCategoryMenu() {
         menuItem.onclick = () => filterByCategory(category);
         menu.appendChild(menuItem);
     });
+
+    let toggleButton = document.createElement('button');
+    toggleButton.id = 'categoryToggle';
+    toggleButton.classList.add('toggle-button');
+    toggleButton.innerText = '▼'; // or use an icon
+    menu.appendChild(toggleButton);
 }
 
 function filterByCategory(category) {
@@ -201,3 +207,21 @@ window.onresize = adjustLayout;
 sortData();
 createCategoryMenu()
 filterByCategory(allCategoryName);
+
+let categoriesVisible = true; // State to track visibility of categories
+
+document.getElementById('categoryToggle').addEventListener('click', function() {
+    const menu = document.getElementById('categoryMenu');
+    const categoryItems = menu.querySelectorAll('.menu-item');
+
+    if (categoriesVisible) {
+        // Hide category items with a smooth transition
+        categoryItems.forEach(item => item.classList.add('hidden'));
+    } else {
+        // Show category items with a smooth transition
+        categoryItems.forEach(item => item.classList.remove('hidden'));
+    }
+
+    categoriesVisible = !categoriesVisible; // Toggle the state
+    this.classList.toggle('rotated'); // Rotate the toggle button
+});
