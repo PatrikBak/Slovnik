@@ -99,6 +99,13 @@ function createLetterMenu(entries) {
         };
         menu.appendChild(menuItem);
     });
+
+    // Create the letter toggle
+    let toggleButton = document.createElement('button');
+    toggleButton.id = 'letterToggle';
+    toggleButton.classList.add('toggle-button');
+    toggleButton.innerText = '▼'; // or use an icon
+    menu.appendChild(toggleButton);
 }
 
 function displayDictionary(entries) {
@@ -195,14 +202,50 @@ function adjustContainerHeight() {
     container.style.height = (contentHeight + 550) + 'px';
 }
 
+let isFirstLoad = true; // Flag to track the initial load
+
+function disableTransitionsTemporarily() {
+    const elements = [document.getElementById('categoryMenu'), document.getElementById('dictionary'), document.getElementById('container')];
+    elements.forEach(el => {
+        if (el) {
+            el.style.transition = 'none';
+        }
+    });
+}
+
+function restoreTransitions() {
+    const elements = [document.getElementById('categoryMenu'), document.getElementById('dictionary'), document.getElementById('container')];
+    elements.forEach(el => {
+        if (el) {
+            el.style.transition = '';
+        }
+    });
+}
+
 function adjustLayout() {
+    if (isFirstLoad) {
+        disableTransitionsTemporarily();
+    }
+
     adjustCategoryMenuPosition();
     adjustDictionaryPosition();
     adjustContainerHeight();
+
+    if (isFirstLoad) {
+        // Restore transitions after a short delay
+        setTimeout(restoreTransitions, 50); // 50ms delay
+        isFirstLoad = false;
+    }
 }
 
 window.onload = adjustLayout;
-window.onresize = adjustLayout;
+window.onresize = function() {
+    // Immediate adjustment
+    adjustLayout();
+
+    // Forced adjustment after a delay
+    setTimeout(adjustLayout, 150); // Adjust the delay as needed
+};
 
 sortData();
 createCategoryMenu()
@@ -210,7 +253,9 @@ filterByCategory(allCategoryName);
 
 let categoriesVisible = true; // State to track visibility of categories
 
-document.getElementById('categoryToggle').addEventListener('click', function() {
+const longestAnimationDuration = 300;
+
+document.getElementById('categoryToggle').addEventListener('click', function () {
     const menu = document.getElementById('categoryMenu');
     const categoryItems = menu.querySelectorAll('.menu-item');
 
@@ -224,4 +269,37 @@ document.getElementById('categoryToggle').addEventListener('click', function() {
 
     categoriesVisible = !categoriesVisible; // Toggle the state
     this.classList.toggle('rotated'); // Rotate the toggle button
+
+    setTimeout(() => {
+        adjustDictionaryPosition();
+        setTimeout(adjustContainerHeight, longestAnimationDuration);
+    }, longestAnimationDuration);
+});
+
+let lettersVisible = true; // State to track visibility of categories
+
+document.getElementById('letterToggle').addEventListener('click', function () {
+    const menu = document.getElementById('menu');
+    const letterItems = menu.querySelectorAll('.menu-item');
+
+    if (lettersVisible) {
+        // Hide category items with a smooth transition
+        letterItems.forEach(item => item.classList.add('hidden'));
+    } else {
+        // Show category items with a smooth transition
+        letterItems.forEach(item => item.classList.remove('hidden'));
+    }
+
+    lettersVisible = !lettersVisible; // Toggle the state
+    this.classList.toggle('rotated'); // Rotate the toggle button
+
+    setTimeout(() => {
+        adjustCategoryMenuPosition();
+        setTimeout(() => {
+            adjustDictionaryPosition();
+            setTimeout(() => {
+                adjustContainerHeight();
+            }, longestAnimationDuration);
+        }, longestAnimationDuration);
+    }, longestAnimationDuration);
 });

@@ -14,6 +14,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding-right: 30px;
+    min-height: 45px;
 }
 
 #menu .menu-item {
@@ -158,21 +160,20 @@
     /* Adjust as needed */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     /* Optional shadow for depth */
-    transition: transform 0.3s ease; /* Smooth transition for transform */
+    transition: transform 0.3s ease;
+    /* Smooth transition for transform */
 }
 
 .toggle-button.rotated {
-    transform: rotate(180deg); /* Rotate the button 180 degrees */
+    transform: rotate(180deg);
 }
 
 .toggle-button:hover {
     background-color: #0056b3;
-    /* Darker shade for hover */
 }
 
 .toggle-button.active {
     transform: rotate(180deg);
-    /* Flip the arrow when active */
 }
 
 #categoryMenu .menu-item {
@@ -187,4 +188,43 @@
     overflow: hidden;
     pointer-events: none;
     margin: 0;
+}
+
+#letterToggle {
+    background-color: #adb5bd;
+    color: white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+#letterToggle:hover {
+    background-color: #9ca3ab;
+}
+
+#menu .menu-item {
+    transition: margin 0.3s, opacity 0.3s, max-height 0.3s ease;
+    max-height: 50px;
+    opacity: 1;
+}
+
+#menu .menu-item.hidden {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    margin: 0;
+}
+
+#categoryMenu {
+    transition: margin-top 0.3s ease;
+    /* ... other styles ... */
+}
+
+#dictionary {
+    transition: margin-top 0.3s ease;
+    /* ... other styles ... */
+}
+
+#container {
+    transition: height 0.3s ease;
+    /* ... other styles ... */
 }
