@@ -1,7 +1,7 @@
-// Function to sort and categorize the dictionary
-function categorizeDictionary(entries) {
-    // Sort the entries alphabetically
-    entries.sort((a, b) => {
+// Function to make sure we work with sorted data
+function sortData() {
+    dictionaryEntries.sort((a, b) => {
+        // I have no idea but it doesn't sort correctly without this step
         const first_letter = a.word.charAt(0).toUpperCase().localeCompare(b.word.charAt(0).toUpperCase());
 
         if (first_letter != 0)
@@ -9,29 +9,64 @@ function categorizeDictionary(entries) {
         else
             return a.word.localeCompare(b.word);
     });
-
-    // Categorize by the first letter
-    const categorized = {};
-    entries.forEach(entry => {
-        const firstLetter = entry.word.charAt(0).toUpperCase();
-        if (!categorized[firstLetter]) {
-            categorized[firstLetter] = [];
-        }
-        categorized[firstLetter].push(entry);
-    });
-    return categorized;
 }
 
-// Use the function to get a sorted and categorized dictionary
-const dictionary = categorizeDictionary(dictionaryEntries)
+const allCategoryName = 'všechny'
+
+function createCategoryMenu() {
+    const menu = document.getElementById('categoryMenu');
+    const categories = [allCategoryName, 'algebra', 'kombinatorika', 'geometrie', 'teorie čísel', 'ostatní'];
+
+    categories.forEach(category => {
+        let menuItem = document.createElement('span');
+        menuItem.classList.add('menu-item');
+        menuItem.innerText = category;
+        menuItem.onclick = () => filterByCategory(category);
+        menu.appendChild(menuItem);
+    });
+}
+
+function filterByCategory(category) {
+    // Filter entries based on the selected category
+    let filteredEntries = category === allCategoryName
+        ? dictionaryEntries
+        : dictionaryEntries.filter(entry => entry.category === category);
+
+    // Recreate the letter menu based on filtered entries
+    createLetterMenu(filteredEntries);
+
+    // Display the dictionary with filtered entries
+    displayDictionary(filteredEntries);
+
+    // Update active class on category buttons
+    const categoryButtons = document.querySelectorAll('#categoryMenu .menu-item');
+    categoryButtons.forEach(button => {
+        button.classList.toggle('active', button.innerText === category);
+    });
+
+    // This will update the menu
+    adjustLayout();
+
+    // Wait for the next frame, then wait for another frame, then scroll
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+}
 
 // Function to create the A-Z menu
-function createMenu() {
+function createLetterMenu(entries) {
     const menu = document.getElementById('menu');
+    menu.innerHTML = ''
     const uniqueLetters = new Set();
 
     // Loop through dictionary entries to get unique first letters
-    dictionaryEntries.forEach(entry => {
+    entries.forEach(entry => {
         const firstLetter = entry.word.charAt(0).toUpperCase();
         uniqueLetters.add(firstLetter);
     });
@@ -44,34 +79,37 @@ function createMenu() {
         let menuItem = document.createElement('span');
         menuItem.classList.add('menu-item');
         menuItem.innerText = letter;
-        menuItem.onclick = () => scrollToElement(
-            document.getElementById('letter-' + letter),
-            -document.getElementById('menu').offsetHeight - 20
-        );
+        menuItem.onclick = () => {
+
+            var categoryMenuRect = document.getElementById('categoryMenu').getBoundingClientRect();
+
+            const element = document.getElementById('letter-' + letter)
+            const elementPosition = element.offsetTop - (categoryMenuRect.top + categoryMenuRect.height + 15);
+
+            window.scrollTo({
+                top: elementPosition,
+                behavior: 'smooth'
+            });
+        };
         menu.appendChild(menuItem);
     });
 }
 
-function scrollToElement(element, offset) {
-    const elementPosition = element.offsetTop + offset;
-
-    window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-    });
-}
-
-function displayDictionary() {
+function displayDictionary(entries) {
     const dictionaryDiv = document.getElementById('dictionary');
-    for (let letter in dictionary) {
+    dictionaryDiv.innerHTML = '';
+
+    const categorized = categorizeEntriesByLetter(entries);
+
+    for (let letter in categorized) {
         let letterSection = document.createElement('div');
         letterSection.id = 'letter-' + letter;
-        letterSection.className = "letter"
+        letterSection.className = "letter-section";
         let header = document.createElement('h3');
         header.innerText = letter;
         letterSection.appendChild(header);
 
-        dictionary[letter].forEach(entry => {
+        categorized[letter].forEach(entry => {
             // Create the main dictionary entry container
             let entryDiv = document.createElement('div');
             entryDiv.className = 'dictionary-entry';
@@ -120,18 +158,39 @@ function displayDictionary() {
     }
 }
 
+function categorizeEntriesByLetter(entries) {
+    const categorized = {};
+    entries.forEach(entry => {
+        const firstLetter = entry.word.charAt(0).toUpperCase();
+        if (!categorized[firstLetter]) {
+            categorized[firstLetter] = [];
+        }
+        categorized[firstLetter].push(entry);
+    });
+    return categorized;
+}
+
+function adjustCategoryMenuPosition() {
+    var menuHeight = document.getElementById('menu').offsetHeight + 25;
+    var categoryMenu = document.getElementById('categoryMenu');
+    categoryMenu.style.marginTop = menuHeight + 'px';
+}
+
 function adjustDictionaryPosition() {
-    var menuHeight = document.getElementById('menu').offsetHeight + 40;
-    document.getElementById('dictionary').style.marginTop = menuHeight + 'px';
+    var categoryMenuRect = document.getElementById('categoryMenu').getBoundingClientRect();
+    var menuHeightFromTop = categoryMenuRect.top + categoryMenuRect.height + 15;
+    document.getElementById('dictionary').style.marginTop = menuHeightFromTop + 'px';
 }
 
 function adjustContainerHeight() {
+    var dictionary = document.getElementById('dictionary');
     var container = document.getElementById('container');
-    var contentHeight = container.scrollHeight;
-    container.style.height = (contentHeight + 400) + 'px';
+    var contentHeight = dictionary.scrollHeight;
+    container.style.height = (contentHeight + 550) + 'px';
 }
 
 function adjustLayout() {
+    adjustCategoryMenuPosition();
     adjustDictionaryPosition();
     adjustContainerHeight();
 }
@@ -139,5 +198,6 @@ function adjustLayout() {
 window.onload = adjustLayout;
 window.onresize = adjustLayout;
 
-createMenu();
-displayDictionary();
+sortData();
+createCategoryMenu()
+filterByCategory(allCategoryName);
