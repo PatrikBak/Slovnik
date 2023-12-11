@@ -2,14 +2,14 @@ const dictionaryEntries = [
     {
         "word": "Géčko",
         "category": "geometrie",
-        "definition": "Hovorové označení pro geometrii, jakožto jednu ze čtyř hlavních oblastí olympiádní matematiky. Je odvozené od písmene g, kterým začíná anglické slovo geometry neboli geometrie.",
+        "definition": "Hovorové označení pro geometrii, jakožto jednu ze čtyř hlavních oblastí olympiádní matematiky. Je odvozené od písmene <em>g</em>, kterým začíná anglické slovo geometry neboli geometrie.",
         "example": "Géčko je pro mnohé matematiky nejoblíbenější oblastí.",
         "note": ""
     },
     {
         "word": "Céčko",
         "category": "kombinatorika",
-        "definition": "Hovorové označení pro kombinatoriku, jakožto jednu ze čtyř hlavních oblastí olympiádní matematiky. Je odvozené od písmene c, kterým začíná anglické slovo combinatorics neboli kombinatorika. V jiném kontextu se může jednat o kategorii C.",
+        "definition": "Hovorové označení pro kombinatoriku, jakožto jednu ze čtyř hlavních oblastí olympiádní matematiky. Je odvozené od písmene <em>c</em>, kterým začíná anglické slovo combinatorics neboli kombinatorika.",
         "example": "Mnohé céčkové úlohy nevyžadují žádné speciální znalosti, ale nápad.",
         "note": ""
     },
@@ -23,14 +23,14 @@ const dictionaryEntries = [
     {
         "word": "Enko",
         "category": "teorie čísel",
-        "definition": "Hovorové označení pro teorii čísel, jakožto jednu ze čtyř hlavních oblastí olympiádní matematiky. Je odvozené od písmene n, kterým začíná anglické sousloví number theory neboli teorie čísel.",
-        "example": "Při řešení nka člověk často využívá známá tvrzení.",
+        "definition": "Hovorové označení pro teorii čísel, jakožto jednu ze čtyř hlavních oblastí olympiádní matematiky. Je odvozené od písmene <em>n</em>, kterým začíná anglické sousloví number theory neboli teorie čísel.",
+        "example": "Při řešení enka člověk často využívá známá tvrzení.",
         "note": ""
     },
     {
         "word": "Áčko",
         "category": "algebra",
-        "definition": "Hovorové označení pro algebru, jakožto jednu ze čtyř hlavních oblastí olympiádní matematiky. Je odvozené od písmene a, kterým začíná slovo algebra.",
+        "definition": "Hovorové označení pro algebru, jakožto jednu ze čtyř hlavních oblastí olympiádní matematiky. Je odvozené od písmene <em>a</em>, kterým začíná slovo algebra.",
         "example": "Mezi potřebné dovednosti při řešení áčka patří úprava výrazů.",
         "note": ""
     },
@@ -59,14 +59,14 @@ const dictionaryEntries = [
         "word": "Vepsiště",
         "category": "geometrie",
         "definition": "Střed kružnice vepsané mnohoúhelníku (vepsaná kružnice mnohoúhelníku je taková, která se dotýká všech jeho stran zevnitř), nejčastěji trojúhelníku.",
-        "example": "Vepsiště se obvykle značí písmenem I podle anglického slova „incenter”.",
+        "example": "Vepsiště se obvykle značí písmenem <em>I</em> podle anglického slova „incenter”.",
         "note": ""
     },
     {
         "word": "Opsiště",
         "category": "geometrie",
         "definition": "Střed kružnice opsané mnohoúhelníku (kružnice opsaná mnohoúhelníku je taková, která prochází všemi jeho vrcholy).",
-        "example": "Opsiště se obvykle značí písmenem O.",
+        "example": "Opsiště se obvykle značí písmenem <em>O</em>.",
         "note": ""
     },
     {
@@ -85,28 +85,28 @@ const dictionaryEntries = [
     {
         "word": "Připsiště",
         "category": "geometrie",
-        "definition": "Střed kružnice připsané trojúhelníku (kružnice A-připsaná trojúhelníku ABC je taková kružnice, která se dotýká úsečky BC a polopřímek opačných k BA a CA, analogicky definujeme kružnici B-připsanou a C-připsanou).",
-        "example": "A-připsiště se obvykle značí písmenem IA.",
+        "definition": "Střed kružnice připsané trojúhelníku (kružnice <em>A</em>-připsaná trojúhelníku <em>ABC</em> je taková kružnice, která se dotýká úsečky <em>BC</em> a polopřímek opačných k <em>BA</em> a <em>CA</em>, analogicky definujeme kružnici <em>B</em>-připsanou a <em>C</em>-připsanou).",
+        "example": "<em>A</em>-připsiště se obvykle značí písmenem <em>I<sub>A</sub></em>.",
         "note": ""
     },
     {
         "word": "Švrk",
         "category": "geometrie",
-        "definition": "Bod kružnice opsané trojúhelníku, který je středem oblouku nad stranou daného trojúhelníku na němž neleží třetí vrchol (například v trojúhelníku ABC je A-Švrk střed oblouku BC neobsahující bod A).",
-        "example": "A-Švrk se obvykle značí ŠA.",
+        "definition": "Bod kružnice opsané trojúhelníku, který je středem oblouku nad stranou daného trojúhelníku na němž neleží třetí vrchol (například v trojúhelníku <em>ABC</em> je <em>A</em>-Švrk střed oblouku <em>BC</em> neobsahující bod <em>A</em>).",
+        "example": "<em>A</em>-Švrk se obvykle značí <em>Š<sub>A</sub></em>.",
         "note": "Tento název vznikl na počest Jaroslava Švrčka, který tento bod zpopularizoval v olympiádní matematice. Též se tomuto bodu říká Švrčkův bod."
     },
     {
         "word": "Antišvrk",
         "category": "geometrie",
-        "definition": "Bod kružnice opsané trojúhelníku, který je středem oblouku nad stranou daného trojúhelníku na němž leží třetí vrchol (například v trojúhelníku ABC je A-antišvrk střed oblouku BC obsahující bod A).",
-        "example": "A-antišvrk se obvykle značí NA.",
-        "note": "Tento název je odvozen od názvu jiného bodu, Švrku, který je jeho antipodem (bod X’ je antipodem bodu X na dané kružnici právě tehdy když XX’ je její průměr) na kružnici opsané."
+        "definition": "Bod kružnice opsané trojúhelníku, který je středem oblouku nad stranou daného trojúhelníku na němž leží třetí vrchol (například v trojúhelníku <em>ABC</em> je <em>A</em>-antišvrk střed oblouku <em>BC</em> obsahující bod <em>A</em>).",
+        "example": "<em>A</em>-antišvrk se obvykle značí <em>N<sub>A</sub></em>.",
+        "note": "Tento název je odvozen od názvu jiného bodu, Švrku, který je jeho antipodem (bod <em>X’</em> je antipodem bodu <em>X</em> na dané kružnici, právě tehdy když <em>XX’</em> je její průměr) na kružnici opsané."
     },
     {
         "word": "Kamarádi",
         "category": "geometrie",
-        "definition": "Dva body jsou v daném mnohoúhelníku kamarádi pokud pro každý vrchol platí že přímky spojující tento vrchol s danými body jsou izogonální v úhlu při daném vrcholu (izogonální přímky v daném úhlu jsou přímky procházející vrcholem daného úhlu, které jsou navíc osově symetrické podle osy úhlu).",
+        "definition": "Dva body jsou v daném mnohoúhelníku kamarádi, pokud pro každý vrchol platí, že přímky spojující tento vrchol s danými body jsou izogonální v úhlu při daném vrcholu (izogonální přímky v daném úhlu jsou přímky procházející vrcholem daného úhlu, které jsou navíc osově symetrické podle osy úhlu).",
         "example": "Střed kružnice opsané a ortocentrum daného trojúhelníku jsou kamarádi.",
         "note": ""
     },
@@ -183,7 +183,7 @@ const dictionaryEntries = [
     {
         "word": "Komplex beš",
         "category": "geometrie",
-        "definition": "Technika řešení geometrických úloh využívající počítání v komplexních číslech. Slovo beš je počeštěná verze anglického bash, které je v daném kontextu použito ve významu mlátit. Důvodem je, že podobně jako analytika nebo barycentrika, je i komplex beš metodou využívající sáhodlouhé výpočty, které nevyžadují originální myšlenku. Obrazně řečeno se tedy jedná o mlácení do úlohy dokud se nevyřeší.",
+        "definition": "Technika řešení geometrických úloh využívající počítání v komplexních číslech. Slovo beš je počeštěná verze anglického bash, které je v daném kontextu použito ve významu mlátit. Důvodem je, že podobně jako analytika nebo barycentrika, je i komplex beš metodou využívající sáhodlouhé výpočty, které nevyžadují originální myšlenku. Obrazně řečeno se tedy jedná o mlácení do úlohy, dokud se nevyřeší.",
         "example": "Úlohy s body na jedné kružnici se dobře řeší komplex bešem, protože můžeme bez újmy na obecnosti považovat danou kružnici za jednotkovou.",
         "note": ""
     },
@@ -197,7 +197,7 @@ const dictionaryEntries = [
     {
         "word": "Trojzubec",
         "category": "geometrie",
-        "definition": "Hovorové označení pro větu, která tvrdí, že když máme trojúhelník ABC se středem jeho kružnice vepsané I, tak středem kružnice opsané trojúhelníku BIC je Švrčkův bod naproti vrcholu A.",
+        "definition": "Hovorové označení pro větu, která tvrdí, že když máme trojúhelník <em>ABC</em> se středem jeho kružnice vepsané <em>I</em>, tak středem kružnice opsané trojúhelníku <em>BIC</em> je Švrčkův bod naproti vrcholu <em>A</em>.",
         "example": "Trojzubec se dá dokázat úhlením.",
         "note": ""
     },
@@ -205,7 +205,7 @@ const dictionaryEntries = [
         "word": "Středovka",
         "category": "geometrie",
         "definition": "Hovorové označení pro středovou souměrnost.",
-        "example": "Obrazem ortocentra v středovce podle středu strany BC trojúhelníku ABC je antipod bodu A na kružnici opsané trojúhelníku ABC.",
+        "example": "Obrazem ortocentra v středovce podle středu strany <em>BC</em> trojúhelníku <em>ABC</em> je antipod bodu <em>A</em> na kružnici opsané trojúhelníku ABC.",
         "note": ""
     },
     {
@@ -232,7 +232,7 @@ const dictionaryEntries = [
     {
         "word": "Ágéčko",
         "category": "algebra",
-        "definition": "Hovorové označení pro nerovnost mezi aritmetickým (součet n čísel následně dělený n) a geometrickým (n-tá odmocnina ze součinu n čísel) průměrem.",
+        "definition": "Hovorové označení pro nerovnost mezi aritmetickým (součet <em>n</em> čísel následně dělený <em>n</em>) a geometrickým (<em>n</em>-tá odmocnina ze součinu <em>n</em> čísel) průměrem.",
         "example": "Z ágéčka vyplývá, že aritmetický průměr daných nezáporných čísel je větší nebo roven jejich geometrickému průměru.",
         "note": ""
     },
@@ -317,14 +317,7 @@ const dictionaryEntries = [
         "word": "Schur",
         "category": "algebra",
         "definition": "Krátké označení pro Schurovu nerovnost.",
-        "example": "",
-        "note": ""
-    },
-    {
-        "word": "Nesbitt",
-        "category": "algebra",
-        "definition": "",
-        "example": "",
+        "example": "Schurova nerovnosť je zaujímavá tým, že je veľmi ľahké ju odvodiť, ale veľmi ťažké prísť na toto odvodenie z jej finálneho tvaru.",
         "note": ""
     },
     {
@@ -345,7 +338,7 @@ const dictionaryEntries = [
         "word": "Modulení",
         "category": "teorie čísel",
         "definition": "Řešení úlohy z teorie čísel metodou počítání místo se zadanými čísly, pouze s jejich zbytky po dělení nějakým daným číslem (modulo dané číslo).",
-        "example": "Úloha, ve které máme najít všechna čísla n taková, že součet čísel 1!, 2!, až n!, je druhá mocnina celého čísla, se dá hravo vyřešit modulením.",
+        "example": "Úloha, ve které máme najít všechna čísla <em>n</em> taková, že součet čísel <em>1!</em>, <em>2!</em>, až <em>n!</em>, je druhá mocnina celého čísla, se dá hravo vyřešit modulením.",
         "note": ""
     },
     {
@@ -358,14 +351,14 @@ const dictionaryEntries = [
     {
         "word": "Zbytek",
         "category": "teorie čísel",
-        "definition": "Krátké označení pro „zbytek čísla po dělení”. Často používané ve slovním spojení „kvadratický zbytek” (kvadratický zbytek po dělení číslem x je takový zbytek, pro který existuje celé číslo y, jehož druhá mocnina dává po dělení číslem x právě tento zbytek).",
+        "definition": "Krátké označení pro „zbytek čísla po dělení”. Často používané ve slovním spojení „kvadratický zbytek” (kvadratický zbytek po dělení číslem <em>x</em> je takový zbytek, pro který existuje celé číslo <em>y</em>, jehož druhá mocnina dává po dělení číslem <em>x</em> právě tento zbytek).",
         "example": "Číslo 1 je kvadratický zbytek modulo 4, zatímco číslo 3 není.",
         "note": ""
     },
     {
         "word": "Nezbytek",
         "category": "teorie čísel",
-        "definition": "Používané v kontextu kvadratických zbytků. Když se číslo x označí jako nezbytek modulo y, znamená to, že neexistuje žádné číslo, jehož druhá mocnina má zbytek x po dělení číslem y.",
+        "definition": "Používané v kontextu kvadratických zbytků. Když se číslo <em>x</em> označí jako nezbytek modulo <em>y</em>, znamená to, že neexistuje žádné číslo, jehož druhá mocnina má zbytek <em>x</em> po dělení číslem <em>y</em>.",
         "example": "Číslo 3 je kvadratický nezbytek modulo 4.",
         "note": ""
     },
@@ -386,7 +379,7 @@ const dictionaryEntries = [
     {
         "word": "Wilson",
         "category": "teorie čísel",
-        "definition": "Krátké označení pro Wilsonovu větu, tvrzení, které se používá při řešení úloh souvisejících se zjišťováním zbytku daného výrazu po dělením prvočíslem.",
+        "definition": "Krátké označení pro Wilsonovu větu, tvrzení, které se používá při řešení úloh souvisejících se zjišťováním zbytku daného výrazu po dělení prvočíslem.",
         "example": "Wilson se dokazuje pomocí inverzních prvků.",
         "note": "Kenneth Geddes Wilson byl americký fyzik, který dostal Nobelovu cenu za výzkum fázových přechodů."
     },
@@ -400,14 +393,14 @@ const dictionaryEntries = [
     {
         "word": "Elteéčko",
         "category": "teorie čísel",
-        "definition": "Zkratka pro pokročilou větu z teorie čísel, která se v angličtině označuje „Lifting the Exponent Lemma”, resp. LTE",
-        "example": "V úloze z IMO 2022 se dá použít elteéčko",
+        "definition": "Zkratka pro pokročilou větu z teorie čísel, která se v angličtině označuje „Lifting the Exponent Lemma”, resp. LTE.”",
+        "example": "V úloze z IMO 2022 se dá použít elteéčko.",
         "note": ""
     },
     {
         "word": "Inverz",
         "category": "teorie čísel",
-        "definition": "V teorii čísel se takto označuje inverzní prvek k danému číslu (a’ je inverzní prvek a modulo b, pokud platí že součin a*a’ dává zbytek jedna po dělení b, přičemž a i a’ jsou přirozená čísla menší než b).",
+        "definition": "V teorii čísel se takto označuje inverzní prvek k danému číslu (<em>a’</em> je inverzní prvek <em>a</em> modulo <em>b</em>, pokud platí, že součin <em>a*a’</em> dává zbytek jedna po dělení <em>b</em>, přičemž <em>a</em> i <em>a’</em> jsou přirozená čísla menší než <em>b</em>).",
         "example": "Inverzem jedničky je vždycky jednička.",
         "note": ""
     },
@@ -422,7 +415,7 @@ const dictionaryEntries = [
         "word": "Dláždění",
         "category": "kombinatorika",
         "definition": "Krátké označení pro typ kombinatorických úloh, ve kterých se zabýváme tím, zda umíme zadaný útvar vydláždit jinými útvary (specifického tvaru) bez překrývání.",
-        "example": "Dá se dokázat, že šachovnice 8 x 8 se nedá vydláždit útvary „L” složenými ze tří 1 x 1 čtverečků.",
+        "example": "Dá se dokázat, že šachovnice <em>8 x 8</em> se nedá vydláždit útvary „L” složenými ze tří <em>1 x 1</em> čtverečků.",
         "note": ""
     },
     {
@@ -430,7 +423,7 @@ const dictionaryEntries = [
         "category": "kombinatorika",
         "definition": "Krátké označení pro Dirichletův princip, často také nazývaný princip holubníků.",
         "example": "Z Dirichleta plyne, že pokud máme pět holubníků a šest holubů, musí v některém holubníku bydlet minimálně dva holubi.",
-        "note": "Daný princip je pojmenován po Johannovu Peterovi Gustavovi Lejeune Dirichletovi, německému matematikovi, který se zabýval teorií čísel, matematickou analýzou a statistikou."
+        "note": "Daný princip je pojmenován po Johannu Peterovi Gustavovi Lejeune Dirichletovi, německému matematikovi, který se zabýval teorií čísel, matematickou analýzou a statistikou."
     },
     {
         "word": "Olm",
@@ -450,7 +443,7 @@ const dictionaryEntries = [
         "word": "Upočítat",
         "category": "ostatní",
         "definition": "Vyřešit úlohu způsobem, který nevyžaduje přijít na žádnou originální myšlenku, ale stačí k tomu pouze technické znalosti.",
-        "example": "Umět něco upočítat je užitečnou dovedností protože ne vždy se daří přijít na elegantní způsob řešení.",
+        "example": "Umět něco upočítat je užitečnou dovedností, protože ne vždy se daří přijít na elegantní způsob řešení.",
         "note": ""
     },
     {
@@ -485,7 +478,7 @@ const dictionaryEntries = [
         "word": "Soustředko",
         "category": "ostatní",
         "definition": "Matematické soustředění. Tato soustředění jsou hlubokou součástí kultury matematické olympiády a jsou organizována korespondenčními semináři (například PraSe a iKS).",
-        "example": "Na soustředcích účastníci zažijí nejenom přednášky, ale také mnoho společenských her a jiných aktivit.",
+        "example": "Na soustředěních účastníci zažijí nejen přednášky, ale také mnoho společenských her a jiných aktivit.",
         "note": ""
     },
     {

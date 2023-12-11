@@ -157,7 +157,7 @@ function displayDictionary(entries) {
             // Create and append the definition
             let definition = document.createElement('p');
             definition.className = 'definition';
-            definition.textContent = `${entry.definition}`;
+            definition.innerHTML = `${entry.definition}`;
             entryDiv.appendChild(definition);
 
             // Create and append the example, if it exists
