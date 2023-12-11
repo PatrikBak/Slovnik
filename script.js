@@ -11,6 +11,8 @@ function sortData() {
     });
 }
 
+let lettersVisible = true; // State to track visibility of categories
+
 const allCategoryName = 'všechny'
 
 function createCategoryMenu() {
@@ -50,8 +52,10 @@ function filterByCategory(category) {
         button.classList.toggle('active', button.innerText === category);
     });
 
-    // This will update the menu
-    adjustLayout();
+    // No idea, this just makes it work
+    setTimeout(adjustCategoryMenuPosition, 100);
+    setTimeout(adjustDictionaryPosition, 400);
+    setTimeout(adjustContainerHeight, 500);
 
     // Wait for the next frame, then wait for another frame, then scroll
     requestAnimationFrame(() => {
@@ -83,6 +87,10 @@ function createLetterMenu(entries) {
     // Create menu items for each unique letter
     sortedLetters.forEach(letter => {
         let menuItem = document.createElement('span');
+
+        if (!lettersVisible)
+            menuItem.classList.add('hidden');
+
         menuItem.classList.add('menu-item');
         menuItem.innerText = letter;
         menuItem.onclick = () => {
@@ -104,7 +112,12 @@ function createLetterMenu(entries) {
     let toggleButton = document.createElement('button');
     toggleButton.id = 'letterToggle';
     toggleButton.classList.add('toggle-button');
+    toggleButton.addEventListener('click', letterToggleClick());
     toggleButton.innerText = '▼'; // or use an icon
+
+    if (!lettersVisible)
+        toggleButton.classList.add('rotated');
+
     menu.appendChild(toggleButton);
 }
 
@@ -239,7 +252,7 @@ function adjustLayout() {
 }
 
 window.onload = adjustLayout;
-window.onresize = function() {
+window.onresize = function () {
     // Immediate adjustment
     adjustLayout();
 
@@ -253,7 +266,7 @@ filterByCategory(allCategoryName);
 
 let categoriesVisible = true; // State to track visibility of categories
 
-const longestAnimationDuration = 300;
+const longestAnimationDuration = 350;
 
 document.getElementById('categoryToggle').addEventListener('click', function () {
     const menu = document.getElementById('categoryMenu');
@@ -276,30 +289,30 @@ document.getElementById('categoryToggle').addEventListener('click', function () 
     }, longestAnimationDuration);
 });
 
-let lettersVisible = true; // State to track visibility of categories
+function letterToggleClick() {
+    return function () {
+        const menu = document.getElementById('menu');
+        const letterItems = menu.querySelectorAll('.menu-item');
 
-document.getElementById('letterToggle').addEventListener('click', function () {
-    const menu = document.getElementById('menu');
-    const letterItems = menu.querySelectorAll('.menu-item');
+        if (lettersVisible) {
+            // Hide category items with a smooth transition
+            letterItems.forEach(item => item.classList.add('hidden'));
+        } else {
+            // Show category items with a smooth transition
+            letterItems.forEach(item => item.classList.remove('hidden'));
+        }
 
-    if (lettersVisible) {
-        // Hide category items with a smooth transition
-        letterItems.forEach(item => item.classList.add('hidden'));
-    } else {
-        // Show category items with a smooth transition
-        letterItems.forEach(item => item.classList.remove('hidden'));
-    }
+        lettersVisible = !lettersVisible; // Toggle the state
+        this.classList.toggle('rotated'); // Rotate the toggle button
 
-    lettersVisible = !lettersVisible; // Toggle the state
-    this.classList.toggle('rotated'); // Rotate the toggle button
-
-    setTimeout(() => {
-        adjustCategoryMenuPosition();
         setTimeout(() => {
-            adjustDictionaryPosition();
+            adjustCategoryMenuPosition();
             setTimeout(() => {
-                adjustContainerHeight();
+                adjustDictionaryPosition();
+                setTimeout(() => {
+                    adjustContainerHeight();
+                }, longestAnimationDuration);
             }, longestAnimationDuration);
         }, longestAnimationDuration);
-    }, longestAnimationDuration);
-});
+    };
+}
