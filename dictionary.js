@@ -101,7 +101,7 @@ const dictionaryEntries = [
         "category": "geometrie",
         "definition": "Bod kružnice opsané trojúhelníku, který je středem oblouku nad stranou daného trojúhelníku na němž leží třetí vrchol (například v trojúhelníku <em>ABC</em> je <em>A</em>-antišvrk střed oblouku <em>BC</em> obsahující bod <em>A</em>).",
         "example": "<em>A</em>-antišvrk se obvykle značí <em>N<sub>A</sub></em>.",
-        "note": "Tento název je odvozen od názvu jiného bodu, Švrku, který je jeho antipodem (bod <em>X’</em> je antipodem bodu <em>X</em> na dané kružnici, právě tehdy když <em>XX’</em> je její průměr) na kružnici opsané."
+        "note": "Tento název je odvozen od názvu jiného bodu, Švrku, který je jeho antipodem (bod <em>X’</em> je antipodem bodu <em>X</em> na dané kružnici právě tehdy, když <em>XX’</em> je její průměr) na kružnici opsané."
     },
     {
         "word": "Kamarádi",
@@ -191,7 +191,7 @@ const dictionaryEntries = [
         "word": "Spirálka",
         "category": "geometrie",
         "definition": "Hovorové označení pro spirální podobnost (geometrické zobrazení, které je složením stejnolehlosti a otočení). Bývá užitečné v případech, kdy chceme použitím podobnosti jedněch trojúhelníků získat podobnost dalších.",
-        "example": "V domácím kole kategorie A 73. ročníku matematické olympiády je úloha na spirálku.",
+        "example": "Spirálka chodí po dvou.",
         "note": ""
     },
     {
@@ -216,11 +216,11 @@ const dictionaryEntries = [
         "note": ""
     },
     {
-        "word": "Feuerbaška",
+        "word": "Feurbaška",
         "category": "geometrie",
-        "definition": "Hovorové označení pro Feuerbachovu kružnici, také nazývanou kružnicí devíti bodů. Tato kružnice prochází středy stran trojúhelníka, patami výšek a středy spojnic vrcholů trojúhelníka s ortocentrem.",
-        "example": "Existence Feuerbašky se dokazuje pomocí stejnolehlosti.",
-        "note": "Karl Wilhelm Feuerbach byl německý matematik, který jako první dokázal, že se kružnice devíti bodů dotýká kružnice vepsané a kružnic připsaných. Bod dotyku Feuerbašky s kružnicí vepsanou nazýváme Feuerbachův bod."
+        "definition": "Hovorové označení pro Feuerbachovu kružnici, také nazývanou kružnicí devíti bodů. Tato kružnice prochází středy stran trojúhelníku, patami výšek a středy spojnic vrcholů trojúhelníka s ortocentrem.",
+        "example": "Existence Feurbašky se dokazuje pomocí stejnolehlosti.",
+        "note": "Karl Wilhelm Feuerbach byl německý matematik, který jako první dokázal, že se kružnice devíti bodů dotýká kružnice vepsané a kružnic připsaných. Bod dotyku Feurbašky s kružnicí vepsanou nazýváme Feuerbachův bod."
     },
     {
         "word": "Simsonovka",
@@ -240,7 +240,7 @@ const dictionaryEntries = [
         "word": "Kóši",
         "category": "algebra",
         "definition": "Krátké a počeštěné označení pro Cauchy-Schwarzovu nerovnost.",
-        "example": "Pomůcka pro zapamatování si kóšiho zní: „Dvě závorky jsou víc než jedna.”",
+        "example": "Pomůcka pro zapamatování si Kóšiho zní: „Dvě závorky jsou víc než jedna.”",
         "note": "Augustin Louis Cauchy byl francouzský matematik. Byl průkopníkem matematické analýzy."
     },
     {
@@ -261,7 +261,7 @@ const dictionaryEntries = [
         "word": "Jensen",
         "category": "algebra",
         "definition": "Krátké označení pro Jensenovu nerovnost.",
-        "example": "Při použití Jensena musíme dávat pozor, zda se jedná o konvexní, nebo konkávní funkci.",
+        "example": "Při použití Jensena je nutné zohlednit případnou konvexitu/konkávitu funkce.",
         "note": ""
     },
     {
@@ -282,7 +282,7 @@ const dictionaryEntries = [
         "word": "Soustava",
         "category": "algebra",
         "definition": "Krátké označení pro soustavu rovnic.",
-        "example": "V české i slovenské olympiádě jsou se soustavu často vyskytují.",
+        "example": "V české i slovenské olympiádě se soustavy často vyskytují.",
         "note": ""
     },
     {
@@ -314,11 +314,11 @@ const dictionaryEntries = [
         "note": ""
     },
     {
-        "word": "Schur",
+        "word": "Šur",
         "category": "algebra",
-        "definition": "Krátké označení pro Schurovu nerovnost.",
-        "example": "Schurova nerovnosť je zaujímavá tým, že je veľmi ľahké ju odvodiť, ale veľmi ťažké prísť na toto odvodenie z jej finálneho tvaru.",
-        "note": ""
+        "definition": "Krátké a počeštěné označení pro Schurovu nerovnost.",
+        "example": "Šurova nerovnost je zajímavá tím, že je velmi lehké  dokázat její platnost v původním tvaru, ale velmi těžké v roznásobeném.",
+        "note": "Issai Schur byl německý matematik židovského původu. Věnoval se převážně reprezentacím grup."
     },
     {
         "word": "Malý Fermat",
@@ -430,7 +430,7 @@ const dictionaryEntries = [
         "category": "ostatní",
         "definition": "Zkratka od obří láskyplný matematik nebo také olympiádní matematik. Je to jméno jednoho z maskotů matematické olympiády. Je to také označení pro člověka, který tráví nadměrně mnoho času počítáním, kvůli čemuž je příliš dlouho zavřený uvnitř a je potom bledý.",
         "example": "Michal, Kuba a David jsou olmové.",
-        "note": "Olm je anglické označení pro macaráta jeskynního, slepého endemického obojživelníka žijícího v krasových jeskyních a podzemních vodách na Slovinsku. Pojmenování maskota vzniklo na evropské dívčí matematické olympiádě právě podle tohoto živočicha."
+        "note": "Olm je anglické označení pro macaráta jeskynního, slepého endemického obojživelníka žijícího v krasových jeskyních a podzemních vodách ve Slovinsku. Pojmenování maskota vzniklo na evropské dívčí matematické olympiádě právě podle tohoto živočicha."
     },
     {
         "word": "Olmovat",
@@ -457,7 +457,7 @@ const dictionaryEntries = [
         "word": "Celostátko",
         "category": "ostatní",
         "definition": "Ústřední kolo matematické olympiády.",
-        "example": "Celostátka se účastní nejlepší řešitelé krajského kola matematické olympiády kategorie A.",
+        "example": "Celostátka se účastní nejlepší řešitelé krajských kol matematické olympiády kategorie A.",
         "note": ""
     },
     {
@@ -478,7 +478,28 @@ const dictionaryEntries = [
         "word": "Soustředko",
         "category": "ostatní",
         "definition": "Matematické soustředění. Tato soustředění jsou hlubokou součástí kultury matematické olympiády a jsou organizována korespondenčními semináři (například PraSe a iKS).",
-        "example": "Na soustředěních účastníci zažijí nejen přednášky, ale také mnoho společenských her a jiných aktivit.",
+        "example": "Na soustředkách účastníci zažijí nejen přednášky, ale také mnoho společenských her a jiných aktivit.",
+        "note": ""
+    },
+    {
+        "word": "Tětiváč",
+        "category": "geometrie",
+        "definition": "Krátké označení pro tětivový čtyřúhelník (čtyřúhelník, kterému lze opsat kružnici).",
+        "example": "V úlohách se často vyplatí hledat tětiváče.",
+        "note": ""
+    },
+    {
+        "word": "Tětivovec",
+        "category": "geometrie",
+        "definition": "Synonymum pro tětiváč.",
+        "example": "S tětivovci se dobře úhlí.",
+        "note": ""
+    },
+    {
+        "word": "Podlaha",
+        "category": "algebra",
+        "definition": "Český název pro floor function, funkci, která každému číslu přiřazuje největší celé číslo, které ale není větší než zadané číslo.",
+        "example": "Podlahou čísla 3,75 je 3.",
         "note": ""
     },
     {
