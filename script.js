@@ -38,7 +38,7 @@ function filterByCategory(category) {
     // Filter entries based on the selected category
     let filteredEntries = category === allCategoryName
         ? dictionaryEntries
-        : dictionaryEntries.filter(entry => entry.category === category);
+        : dictionaryEntries.filter(entry => entry.category.split('/').includes(category));
 
     // Recreate the letter menu based on filtered entries
     createLetterMenu(filteredEntries);
@@ -146,13 +146,25 @@ function displayDictionary(entries) {
             term.textContent = entry.word;
             entryDiv.appendChild(term);
 
-            // Create and append the category
-            if (entry.category) {
-                let category = document.createElement('span');
-                category.className = 'category';
-                category.textContent = `${entry.category}`;
-                entryDiv.appendChild(category);
+            if (entry.readAs) {
+                let readAs = document.createElement('p');
+                readAs.className = 'readAs';
+                readAs.innerHTML = `<em>(čti „${entry.readAs}”)</em>`;
+                entryDiv.appendChild(readAs);
             }
+
+            let categoryContainer = document.createElement('div');
+            categoryContainer.className = 'category-container';
+
+            let categories = entry.category.split('/');
+            categories.forEach(cat => {
+                let categorySpan = document.createElement('span');
+                categorySpan.className = 'category';
+                categorySpan.textContent = cat.trim();
+                categoryContainer.appendChild(categorySpan);
+            });
+
+            entryDiv.appendChild(categoryContainer);
 
             // Create and append the definition
             let definition = document.createElement('p');

@@ -21,10 +21,11 @@ const dictionaryEntries = [
         "note": ""
     },
     {
-        "word": "Enko",
+        "word": "Nko",
+        "readAs": "enko",
         "category": "teorie čísel",
         "definition": "Hovorové označení pro teorii čísel, jakožto jednu ze čtyř hlavních oblastí olympiádní matematiky. Je odvozené od písmene <em>n</em>, kterým začíná anglické sousloví number theory neboli teorie čísel.",
-        "example": "Při řešení enka člověk často využívá známá tvrzení.",
+        "example": "Při řešení nka člověk často využívá známá tvrzení.",
         "note": ""
     },
     {
@@ -134,7 +135,7 @@ const dictionaryEntries = [
     {
         "word": "Bary",
         "category": "geometrie",
-        "definition": "Zkratka od barycentrika.",
+        "definition": "Zkratka pro barycentriku.",
         "example": "V bary vyjadřujeme polohu bodů pomocí referenčního trojúhelníku.",
         "note": ""
     },
@@ -216,10 +217,10 @@ const dictionaryEntries = [
         "note": ""
     },
     {
-        "word": "Feurbaška",
+        "word": "Feuerbaška",
         "category": "geometrie",
         "definition": "Hovorové označení pro Feuerbachovu kružnici, také nazývanou kružnicí devíti bodů. Tato kružnice prochází středy stran trojúhelníku, patami výšek a středy spojnic vrcholů trojúhelníka s ortocentrem.",
-        "example": "Existence Feurbašky se dokazuje pomocí stejnolehlosti.",
+        "example": "Existence Feuerbašky se dokazuje pomocí stejnolehlosti.",
         "note": "Karl Wilhelm Feuerbach byl německý matematik, který jako první dokázal, že se kružnice devíti bodů dotýká kružnice vepsané a kružnic připsaných. Bod dotyku Feurbašky s kružnicí vepsanou nazýváme Feuerbachův bod."
     },
     {
@@ -237,10 +238,11 @@ const dictionaryEntries = [
         "note": ""
     },
     {
-        "word": "Kóši",
+        "word": "Cauchy",
+        "readAs": "kóši",
         "category": "algebra",
         "definition": "Krátké a počeštěné označení pro Cauchy-Schwarzovu nerovnost.",
-        "example": "Pomůcka pro zapamatování si Kóšiho zní: „Dvě závorky jsou víc než jedna.”",
+        "example": "Pomůcka pro zapamatování si Cauchyho zní: „Dvě závorky jsou víc než jedna.”",
         "note": "Augustin Louis Cauchy byl francouzský matematik. Byl průkopníkem matematické analýzy."
     },
     {
@@ -314,10 +316,11 @@ const dictionaryEntries = [
         "note": ""
     },
     {
-        "word": "Šur",
+        "word": "Schur",
+        "readAs": "šur",
         "category": "algebra",
-        "definition": "Krátké a počeštěné označení pro Schurovu nerovnost.",
-        "example": "Šurova nerovnost je zajímavá tím, že je velmi lehké  dokázat její platnost v původním tvaru, ale velmi těžké v roznásobeném.",
+        "definition": "Krátké označení pro Schurovu nerovnost.",
+        "example": "Schurova nerovnost je zajímavá tím, že je velmi lehké  dokázat její platnost v původním tvaru, ale velmi těžké v roznásobeném.",
         "note": "Issai Schur byl německý matematik židovského původu. Věnoval se převážně reprezentacím grup."
     },
     {
@@ -498,9 +501,66 @@ const dictionaryEntries = [
     {
         "word": "Podlaha",
         "category": "algebra",
-        "definition": "Český název pro floor function, funkci, která každému číslu přiřazuje největší celé číslo, které ale není větší než zadané číslo.",
+        "definition": "Český název pro <em>floor function</em>, funkci, která každému číslu přiřazuje největší celé číslo, které není větší než zadané číslo.",
         "example": "Podlahou čísla 3,75 je 3.",
         "note": ""
+    },
+    {
+        "word": "Rozkejovat",
+        "category": "ostatní",
+        "definition": "Vyřešit úlohu rozebíráním několika možných případů. Toto slovo je odvozené od anglického slova <em>case</em>, které znamená případ.",
+        "example": "Úloha, která jde rozkejsovat je sice nudná, ale řešitelná.",
+        "note": ""
+    },
+    {
+        "word": "Kombi",
+        "category": "kombinatorika",
+        "definition": "Zkrácené označení pro kombinatoriku, jakožto jednu ze čtyř hlavních oblastí olympiádní matematiky.",
+        "example": "Kombi úlohy bývají často řešené pomocí pojmů a vět z teorie grafů.",
+        "note": ""
+    },
+    {
+        "word": "geo",
+        "category": "geometrie",
+        "definition": "Synonymum géčka.",
+        "example": "Geo se obvykle nedá řešit bez nákresu.",
+        "note": ""
+    },
+    {
+        "word": "Kombigeo",
+        "category": "kombinatorika/geometrie",
+        "definition": "Zkratka pro kombinatorickou geometrii, oblast geometrie, která se zabývá množinami bodů dané vlastnosti.",
+        "example": "Kombigeo úlohy se často řeší pomocí konvexních obalů.",
+        "note": ""
+    },
+    {
+        "word": "Stejnolehlit",
+        "category": "geometrie",
+        "definition": "Používat stejnolehlost (geometrické zobrazení, které je definováno středem a koeficientem stejnolehlosti).",
+        "example": "Pokud máme dvě dotýkající se kružnice, vyplatí se stejnolehlit jednu na druhou.",
+        "note": ""
+    },
+    {
+        "word": "Reim",
+        "readAs": "rajm",
+        "category": "geometrie",
+        "definition": "Hovorové označení tvrzení, které lze snadno dokázat úhlením.",
+        "example": "Použití Reima může člověku ušetřit mnoho práce.",
+        "note": ""
+    },
+    {
+        "word": "Apolloniovka",
+        "category": "geometrie",
+        "definition": "Hovorové označení pro Apolloniovu kružnici.",
+        "example": "Na Apolloniovce leží body, které mají konstantní poměr vzdáleností od dvou daných bodů.",
+        "note": "Apollónios z Pergy byl starořecký geometr, matematik a astronom, který svou prací navázal na Eukleidea."
+    },
+    {
+        "word": "Thaletovka",
+        "category": "geometrie",
+        "definition": "Hovorové označení pro Thaletovu kružnici.",
+        "example": "Body, které se dívají na úsečku AB pod pravým úhlem leží na Thaletovce nad průměrem AB.",
+        "note": "Thales z Milétu byl jedním ze zakladatelů starořecké filosofie."
     },
     {
         "word": "Einhorn",

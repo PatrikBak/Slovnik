@@ -65,10 +65,19 @@
     max-width: 300px;
 }
 
-.category {
+.readAs {
+    color: #555;
+}
+
+.category-container {
     position: absolute;
     right: 15px;
     top: 15px;
+}
+
+.category {
+    display: inline-block;
+    margin-right: 5px;
     background-color: #e9f5ff;
     color: #007bff;
     padding: 3px 8px;
@@ -144,27 +153,19 @@
     bottom: 10px;
     right: 10px;
     background-color: #007bff;
-    /* Primary color */
     color: white;
     border: none;
     border-radius: 50%;
-    /* Circular button */
     width: 25px;
-    /* Smaller width */
     height: 25px;
-    /* Smaller height */
     font-size: 16px;
-    /* Smaller font size */
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     font-size: 20px;
-    /* Adjust as needed */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    /* Optional shadow for depth */
     transition: transform 0.3s ease;
-    /* Smooth transition for transform */
 }
 
 .toggle-button.rotated {
@@ -219,17 +220,14 @@
 
 #categoryMenu {
     transition: margin-top 0.3s ease;
-    /* ... other styles ... */
 }
 
 #dictionary {
     transition: margin-top 0.3s ease;
-    /* ... other styles ... */
 }
 
 #container {
     transition: height 0.3s ease;
-    /* ... other styles ... */
 }
 
 .toggle-button:focus {
