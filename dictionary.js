@@ -241,7 +241,7 @@ const dictionaryEntries = [
         "word": "Cauchy",
         "readAs": "kóši",
         "category": "algebra",
-        "definition": "Krátké a počeštěné označení pro Cauchy-Schwarzovu nerovnost.",
+        "definition": "Krátké označení pro Cauchy-Schwarzovu nerovnost.",
         "example": "Pomůcka pro zapamatování si Cauchyho zní: „Dvě závorky jsou víc než jedna.”",
         "note": "Augustin Louis Cauchy byl francouzský matematik. Byl průkopníkem matematické analýzy."
     },
