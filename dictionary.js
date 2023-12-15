@@ -544,7 +544,7 @@ const dictionaryEntries = [
         "word": "Reim",
         "readAs": "rajm",
         "category": "geometrie",
-        "definition": "Hovorové označení tvrzení, které lze snadno dokázat úhlením.",
+        "definition": "Hovorové označení pro tvrzení, které lze snadno dokázat úhlením.",
         "example": "Použití Reima může člověku ušetřit mnoho práce.",
         "note": ""
     },
