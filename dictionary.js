@@ -17,7 +17,7 @@ const dictionaryEntries = [
         "word": "Céčko",
         "category": "ostatní",
         "definition": "Kategorie C.",
-        "example": "Kategorie C je určena studentům prvních ročníků středních škol a odpovídajících ročníků víceletých gymnázií.",
+        "example": "Céčko je určeno studentům prvních ročníků středních škol a odpovídajících ročníků víceletých gymnázií.",
         "note": ""
     },
     {
