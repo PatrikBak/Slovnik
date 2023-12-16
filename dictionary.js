@@ -509,7 +509,7 @@ const dictionaryEntries = [
         "word": "Rozkejovat",
         "category": "ostatní",
         "definition": "Vyřešit úlohu rozebíráním několika možných případů. Toto slovo je odvozené od anglického slova <em>case</em>, které znamená případ.",
-        "example": "Úloha, která jde rozkejsovat je sice nudná, ale řešitelná.",
+        "example": "Úloha, která jde rozkejsovat, je sice nudná, ale řešitelná.",
         "note": ""
     },
     {
