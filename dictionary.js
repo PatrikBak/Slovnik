@@ -2,14 +2,14 @@ const dictionaryEntries = [
     {
         "word": "Géčko",
         "category": "geometrie",
-        "definition": "Hovorové označení pro geometrii, jakožto jednu ze čtyř hlavních oblastí olympiádní matematiky. Je odvozené od písmene <em>g</em>, kterým začíná anglické slovo geometry neboli geometrie.",
+        "definition": "Hovorové označení pro geometrii, jakožto jednu ze čtyř hlavních oblastí olympiádní matematiky. Je odvozené od písmene <em>g</em>, kterým začíná anglické slovo <em>geometry</em> neboli geometrie.",
         "example": "Géčko je pro mnohé matematiky nejoblíbenější oblastí.",
         "note": ""
     },
     {
         "word": "Céčko",
         "category": "kombinatorika",
-        "definition": "Hovorové označení pro kombinatoriku, jakožto jednu ze čtyř hlavních oblastí olympiádní matematiky. Je odvozené od písmene <em>c</em>, kterým začíná anglické slovo combinatorics neboli kombinatorika.",
+        "definition": "Hovorové označení pro kombinatoriku, jakožto jednu ze čtyř hlavních oblastí olympiádní matematiky. Je odvozené od písmene <em>c</em>, kterým začíná anglické slovo <em>combinatorics</em> neboli kombinatorika.",
         "example": "Mnohé céčkové úlohy nevyžadují žádné speciální znalosti, ale nápad.",
         "note": ""
     },
@@ -24,7 +24,7 @@ const dictionaryEntries = [
         "word": "Nko",
         "readAs": "enko",
         "category": "teorie čísel",
-        "definition": "Hovorové označení pro teorii čísel, jakožto jednu ze čtyř hlavních oblastí olympiádní matematiky. Je odvozené od písmene <em>n</em>, kterým začíná anglické sousloví number theory neboli teorie čísel.",
+        "definition": "Hovorové označení pro teorii čísel, jakožto jednu ze čtyř hlavních oblastí olympiádní matematiky. Je odvozené od písmene <em>n</em>, kterým začíná anglické sousloví <em>number theory</em> neboli teorie čísel.",
         "example": "Při řešení nka člověk často využívá známá tvrzení.",
         "note": ""
     },
@@ -60,7 +60,7 @@ const dictionaryEntries = [
         "word": "Vepsiště",
         "category": "geometrie",
         "definition": "Střed kružnice vepsané mnohoúhelníku (vepsaná kružnice mnohoúhelníku je taková, která se dotýká všech jeho stran zevnitř), nejčastěji trojúhelníku.",
-        "example": "Vepsiště se obvykle značí písmenem <em>I</em> podle anglického slova „incenter”.",
+        "example": "Vepsiště se obvykle značí písmenem <em>I</em> podle anglického slova <em>incenter</em>.",
         "note": ""
     },
     {
@@ -184,7 +184,7 @@ const dictionaryEntries = [
     {
         "word": "Komplex beš",
         "category": "geometrie",
-        "definition": "Technika řešení geometrických úloh využívající počítání v komplexních číslech. Slovo beš je počeštěná verze anglického bash, které je v daném kontextu použito ve významu mlátit. Důvodem je, že podobně jako analytika nebo barycentrika, je i komplex beš metodou využívající sáhodlouhé výpočty, které nevyžadují originální myšlenku. Obrazně řečeno se tedy jedná o mlácení do úlohy, dokud se nevyřeší.",
+        "definition": "Technika řešení geometrických úloh využívající počítání v komplexních číslech. Slovo beš je počeštěná verze anglického <em>bash</em>, které je v daném kontextu použito ve významu mlátit. Důvodem je, že podobně jako analytika nebo barycentrika, je i komplex beš metodou využívající sáhodlouhé výpočty, které nevyžadují originální myšlenku. Obrazně řečeno se tedy jedná o mlácení do úlohy, dokud se nevyřeší.",
         "example": "Úlohy s body na jedné kružnici se dobře řeší komplex bešem, protože můžeme bez újmy na obecnosti považovat danou kružnici za jednotkovou.",
         "note": ""
     },
@@ -433,7 +433,7 @@ const dictionaryEntries = [
         "category": "ostatní",
         "definition": "Zkratka od obří láskyplný matematik nebo také olympiádní matematik. Je to jméno jednoho z maskotů matematické olympiády. Je to také označení pro člověka, který tráví nadměrně mnoho času počítáním, kvůli čemuž je příliš dlouho zavřený uvnitř a je potom bledý.",
         "example": "Michal, Kuba a David jsou olmové.",
-        "note": "Olm je anglické označení pro macaráta jeskynního, slepého endemického obojživelníka žijícího v krasových jeskyních a podzemních vodách ve Slovinsku. Pojmenování maskota vzniklo na evropské dívčí matematické olympiádě právě podle tohoto živočicha."
+        "note": "<em>Olm</em> je anglické označení pro macaráta jeskynního, slepého endemického obojživelníka žijícího v krasových jeskyních a podzemních vodách ve Slovinsku. Pojmenování maskota vzniklo na evropské dívčí matematické olympiádě právě podle tohoto živočicha."
     },
     {
         "word": "Olmovat",
@@ -452,7 +452,7 @@ const dictionaryEntries = [
     {
         "word": "Zbešit",
         "category": "geometrie",
-        "definition": "Vyřešit geometrickou úlohu použitím výpočetních technik (analytika, bary, komplex beš). Slovo zbešit je odvozené od anglického slova bash, které znamená mlátit, což v přeneseném slova smyslu je výstižné označení pro tento postup pro řešení úloh.",
+        "definition": "Vyřešit geometrickou úlohu použitím výpočetních technik (analytika, bary, komplex beš). Slovo zbešit je odvozené od anglického slova <em>bash</em>, které znamená mlátit, což v přeneseném slova smyslu je výstižné označení pro tento postup pro řešení úloh.",
         "example": "Úloha, kterou lze snadno zbešit, není moc dobrá.",
         "note": ""
     },
@@ -520,7 +520,7 @@ const dictionaryEntries = [
         "note": ""
     },
     {
-        "word": "geo",
+        "word": "Geo",
         "category": "geometrie",
         "definition": "Synonymum géčka.",
         "example": "Geo se obvykle nedá řešit bez nákresu.",
