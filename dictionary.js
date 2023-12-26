@@ -559,8 +559,50 @@ const dictionaryEntries = [
         "word": "Thaletovka",
         "category": "geometrie",
         "definition": "Hovorové označení pro Thaletovu kružnici.",
-        "example": "Body, které se dívají na úsečku AB pod pravým úhlem leží na Thaletovce nad průměrem AB.",
+        "example": "Body, které se dívají na úsečku <em>AB</em> pod pravým úhlem leží na Thaletovce nad průměrem <em>AB</em>.",
         "note": "Thales z Milétu byl jedním ze zakladatelů starořecké filosofie."
+    },
+    {
+        "word": "Kencr",
+        "category": "ostatní",
+        "definition": "Úloha, která je ošklivá, k jejímu vyřešení je potřeba hodně práce nevyžadující obzvlášť zajímavé nápady.",
+        "example": "Úlohy na roznásobování jsou kencr.",
+        "note": "Slovo kencr je odvozeno od anglického slova <em>cancer</em>."
+    },
+    {
+        "word": "Kekel",
+        "category": "ostatní",
+        "definition": "Úloha, která je náročná.",
+        "example": "Úlohy na IMO jsou kekel.",
+        "note": ""
+    },
+    {
+        "word": "Inverz",
+        "category": "geometrie",
+        "definition": "Obraz objektu v kruhové inverzi.",
+        "example": "Přímka procházející středem inverze je inverzem sebe sama.",
+        "note": ""
+    },
+    {
+        "word": "BC-inverze",
+        "category": "geometrie",
+        "definition": "Zkrácené označení pro kruhovou inverzi v trojúhelníku <em>ABC</em>, která má střed v <em>A</em> a poloměr <em>sqrt(bc)</em>(kde <em>b</em> je délka strany <em>AC</em> a <em>c</em> je délka strany <em>AB</em>) složenou s osovou souměrností podle osy úhlu <em>BAC</em>.",
+        "example": "BC-inverze se dá využít k důkazu isogonality.",
+        "note": ""
+    },
+    {
+        "word": "Euklid",
+        "category": "teorie čísel",
+        "definition": "Zkrácené označení pro Euklidův algoritmus.",
+        "example": "Použitím Euklida umíme získat největšího společného dělitele dvou čísel.",
+        "note": "Eukleides byl řecký matematik a geometr. Proslavil se svojí knihou Základy."
+    },
+    {
+        "word": "Pythagorovka",
+        "category": "geometrie",
+        "definition": "Zkrácené označení pro Pythagorovu větu.",
+        "example": "Díky Pythagorovce můžeme v pravoúhlém trojúhelníku ze dvou délek stran dopočítat třetí.",
+        "note": "Pythagoras ze Samu byl řecký filozof, matematik, astronom a kněz. Je přezdívaný otcem čísel."
     },
     {
         "word": "Einhorn",
