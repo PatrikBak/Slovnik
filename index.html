@@ -13,48 +13,13 @@
 <body>
 
     <div id="container">
-        <button id="suggestWordButton" data-toggle="modal" data-target="#wordSuggestModal"></button>
         <nav id="letterMenu" aria-label="Dictionary navigation"></nav>
         <nav id="categoryMenu" aria-label="Category navigation"></nav>
         <section id="dictionary" aria-label="Dictionary entries"></section>
     </div>
 
-    <div id="wordSuggestModal" class="modal fade">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Navrhnite nám slovo 😊</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="suggestForm" netlify>
-                        <div class="form-group">
-                            <label for="nameInput">Jméno (nepovinný):</label>
-                            <input type="text" class="form-control" id="nameInput" name="name">
-                        </div>
-                        <div class="form-group">
-                            <label for="wordInput">Slovo:</label>
-                            <input type="text" class="form-control" id="wordInput" name="word" required
-                                required oninvalid="this.setCustomValidity('Prosím, vyplňte slovo.')">
-                        </div>
-                        <div class="form-group">
-                            <label for="definitionInput">Definice:</label>
-                            <textarea class="form-control" id="definitionInput" name="definition" required></textarea>
-                        </div>
-                        <input type="submit" class="btn btn-primary" value="Odeslat">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script src="dictionary.js"></script>
     <script src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
 
