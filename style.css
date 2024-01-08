@@ -1,3 +1,18 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 800px;
+    transition: height 0.3s ease;
+}
+
+@media (max-width: 800px) {
+    #container {
+        padding: 0 20px;
+    }
+}
+
 #letterMenu {
     position: fixed;
     top: 0;
@@ -21,7 +36,6 @@
 #letterMenu .menu-item {
     margin: 0 10px;
     padding: 5px 10px;
-    transition: background-color 0.3s, color 0.3s;
     border-radius: 3px;
 }
 
@@ -29,74 +43,6 @@
 #letterMenu .menu-item:focus {
     background-color: #007bff;
     color: white;
-    cursor: pointer;
-}
-
-#container {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    max-width: 100%;
-    width: 800px;
-}
-
-@media (max-width: 800px) {
-    #container {
-        width: 100%;
-        padding: 0 20px;
-    }
-}
-
-.dictionary-entry {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    position: relative;
-}
-
-.term {
-    color: #007bff;
-    margin-bottom: 10px;
-    display: inline-block;
-    font-size: 25px;
-    overflow-wrap: break-word;
-    max-width: 300px;
-}
-
-.readAs {
-    color: #555;
-}
-
-.category-container {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-}
-
-.category {
-    display: inline-block;
-    margin-right: 5px;
-    background-color: #e9f5ff;
-    color: #007bff;
-    padding: 3px 8px;
-    border-radius: 3px;
-    font-size: 14px;
-}
-
-.definition,
-.example,
-.note {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #555;
-}
-
-.example strong,
-.note strong {
-    color: #333;
-    font-weight: bold;
 }
 
 #categoryMenu {
@@ -116,6 +62,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 0 0 5px 5px;
     min-height: 45px;
+    transition: margin-top 0.3s ease;
 }
 
 #categoryMenu .menu-item {
@@ -124,8 +71,6 @@
     background-color: #e9f5ff;
     color: #007bff;
     border-radius: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
     font-size: 14px;
     text-align: center;
 }
@@ -146,6 +91,72 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    transition: margin 0.3s, opacity 0.3s, max-height 0.3s ease;
+    max-height: 50px;
+    opacity: 1;
+}
+
+.menu-item.hidden {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    margin: 0;
+}
+
+#dictionary {
+    transition: margin-top 0.3s ease;
+}
+
+.dictionary-entry {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.term {
+    color: #007bff;
+    margin-bottom: 10px;
+    display: inline-block;
+    font-size: 25px;
+    overflow-wrap: break-word;
+    max-width: 300px;
+}
+
+.category-container {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.category {
+    display: inline-block;
+    margin-right: 5px;
+    background-color: #e9f5ff;
+    color: #007bff;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.readAs,
+.definition,
+.example,
+.note {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.example strong,
+.note strong {
+    color: #333;
+    font-weight: bold;
 }
 
 .toggle-button {
@@ -180,18 +191,8 @@
     transform: rotate(180deg);
 }
 
-#categoryMenu .menu-item {
-    transition: margin 0.3s, opacity 0.3s, max-height 0.3s ease;
-    max-height: 50px;
-    opacity: 1;
-}
-
-#categoryMenu .menu-item.hidden {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    pointer-events: none;
-    margin: 0;
+.toggle-button:focus {
+    outline: none;
 }
 
 #letterToggle {
@@ -202,34 +203,4 @@
 
 #letterToggle:hover {
     background-color: #9ca3ab;
-}
-
-#letterMenu .menu-item {
-    transition: margin 0.3s, opacity 0.3s, max-height 0.3s ease;
-    max-height: 50px;
-    opacity: 1;
-}
-
-#letterMenu .menu-item.hidden {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    pointer-events: none;
-    margin: 0;
-}
-
-#categoryMenu {
-    transition: margin-top 0.3s ease;
-}
-
-#dictionary {
-    transition: margin-top 0.3s ease;
-}
-
-#container {
-    transition: height 0.3s ease;
-}
-
-.toggle-button:focus {
-    outline: none;
 }
