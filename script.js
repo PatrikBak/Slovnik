@@ -11,8 +11,6 @@ function sortData() {
     });
 }
 
-let lettersVisible = true; // State to track visibility of categories
-
 // The name of the cateogy indicating all dictionary entries
 const allCategoryName = 'všechny'
 
@@ -53,9 +51,8 @@ function filterByCategory(category) {
         button.classList.toggle('active', button.innerText === category);
     });
 
-    // No idea, this just makes it work
-    setTimeout(adjustCategoryMenuPosition, 100);
-    setTimeout(adjustDictionaryPosition, 400);
+    // Update the menu positions
+    adjustLayout();
 
     // Wait for an enough number of frames, then scroll
     requestAnimationFrame(() => {
@@ -86,11 +83,12 @@ function setupCategoryToggle() {
         categoriesVisible = !categoriesVisible;
         this.classList.toggle('rotated');
 
-        setTimeout(() => {
-            adjustDictionaryPosition();
-        }, longestAnimationDuration);
+        adjustLayout();
     });
 }
+
+// We'll keep track of whether the letter menu is visible, initially it is
+let lettersVisible = true;
 
 function createLetterMenu(entries) {
     const menu = document.getElementById('letterMenu');
@@ -147,12 +145,7 @@ function createLetterMenu(entries) {
         lettersVisible = !lettersVisible;
         this.classList.toggle('rotated');
 
-        setTimeout(() => {
-            adjustCategoryMenuPosition();
-            setTimeout(() => {
-                adjustDictionaryPosition();
-            }, longestAnimationDuration);
-        }, longestAnimationDuration);
+        adjustLayout();
     });
 
     if (!lettersVisible)
@@ -253,24 +246,14 @@ function adjustDictionaryPosition() {
 }
 
 function adjustLayout() {
-    adjustCategoryMenuPosition();
-    adjustDictionaryPosition();
+    setTimeout(adjustCategoryMenuPosition, 150);
+    setTimeout(adjustDictionaryPosition, 450);
 }
 
 window.onload = adjustLayout;
-window.onresize = function () {
-    // Immediate adjustment
-    adjustLayout();
-
-    // Forced adjustment after a delay
-    setTimeout(adjustLayout, 150); // Adjust the delay as needed
-};
+window.onresize = adjustLayout;
 
 sortData();
 createCategoryMenu();
 setupCategoryToggle();
 filterByCategory(allCategoryName);
-
-
-
-const longestAnimationDuration = 350;
