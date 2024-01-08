@@ -1,7 +1,7 @@
 // Function to make sure we work with sorted data
 function sortData() {
     dictionaryEntries.sort((a, b) => {
-        // I have no idea but it doesn't sort correctly without this step
+        // I have no idea why but it doesn't sort correctly without this step
         const first_letter = a.word.charAt(0).toUpperCase().localeCompare(b.word.charAt(0).toUpperCase());
 
         if (first_letter != 0)
@@ -13,6 +13,7 @@ function sortData() {
 
 let lettersVisible = true; // State to track visibility of categories
 
+// The name of the cateogy indicating all dictionary entries
 const allCategoryName = 'všechny'
 
 function createCategoryMenu() {
@@ -30,7 +31,7 @@ function createCategoryMenu() {
     let toggleButton = document.createElement('button');
     toggleButton.id = 'categoryToggle';
     toggleButton.classList.add('toggle-button');
-    toggleButton.innerText = '▼'; // or use an icon
+    toggleButton.innerText = '▼';
     menu.appendChild(toggleButton);
 }
 
@@ -56,7 +57,7 @@ function filterByCategory(category) {
     setTimeout(adjustCategoryMenuPosition, 100);
     setTimeout(adjustDictionaryPosition, 400);
 
-    // Wait for the next frame, then wait for another frame, then scroll
+    // Wait for an enough number of frames, then scroll
     requestAnimationFrame(() => {
         requestAnimationFrame(() => {
             window.scrollTo({
@@ -68,7 +69,29 @@ function filterByCategory(category) {
     });
 }
 
-// Function to create the A-Z menu
+// We'll keep track of whether the category menu is visible, initially it is
+let categoriesVisible = true;
+
+function setupCategoryToggle() {
+    document.getElementById('categoryToggle').addEventListener('click', function () {
+        const menu = document.getElementById('categoryMenu');
+        const categoryItems = menu.querySelectorAll('.menu-item');
+
+        if (categoriesVisible) {
+            categoryItems.forEach(item => item.classList.add('hidden'));
+        } else {
+            categoryItems.forEach(item => item.classList.remove('hidden'));
+        }
+
+        categoriesVisible = !categoriesVisible;
+        this.classList.toggle('rotated');
+
+        setTimeout(() => {
+            adjustDictionaryPosition();
+        }, longestAnimationDuration);
+    });
+}
+
 function createLetterMenu(entries) {
     const menu = document.getElementById('letterMenu');
     menu.innerHTML = ''
@@ -93,11 +116,10 @@ function createLetterMenu(entries) {
         menuItem.classList.add('menu-item');
         menuItem.innerText = letter;
         menuItem.onclick = () => {
-
-            var categoryMenuRect = document.getElementById('categoryMenu').getBoundingClientRect();
+            var categoryMenuBox = document.getElementById('categoryMenu').getBoundingClientRect();
 
             const element = document.getElementById('letter-' + letter)
-            const elementPosition = element.offsetTop - (categoryMenuRect.top + categoryMenuRect.height + 15);
+            const elementPosition = element.offsetTop - (categoryMenuBox.top + categoryMenuBox.height + 15);
 
             window.scrollTo({
                 top: elementPosition,
@@ -111,8 +133,27 @@ function createLetterMenu(entries) {
     let toggleButton = document.createElement('button');
     toggleButton.id = 'letterToggle';
     toggleButton.classList.add('toggle-button');
-    toggleButton.addEventListener('click', letterToggleClick());
-    toggleButton.innerText = '▼'; // or use an icon
+    toggleButton.innerText = '▼';
+    toggleButton.addEventListener('click', function () {
+        const menu = document.getElementById('letterMenu');
+        const letterItems = menu.querySelectorAll('.menu-item');
+
+        if (lettersVisible) {
+            letterItems.forEach(item => item.classList.add('hidden'));
+        } else {
+            letterItems.forEach(item => item.classList.remove('hidden'));
+        }
+
+        lettersVisible = !lettersVisible;
+        this.classList.toggle('rotated');
+
+        setTimeout(() => {
+            adjustCategoryMenuPosition();
+            setTimeout(() => {
+                adjustDictionaryPosition();
+            }, longestAnimationDuration);
+        }, longestAnimationDuration);
+    });
 
     if (!lettersVisible)
         toggleButton.classList.add('rotated');
@@ -135,11 +176,9 @@ function displayDictionary(entries) {
         letterSection.appendChild(header);
 
         categorized[letter].forEach(entry => {
-            // Create the main dictionary entry container
             let entryDiv = document.createElement('div');
             entryDiv.className = 'dictionary-entry';
 
-            // Create and append the term (word)
             let term = document.createElement('h2');
             term.className = 'term';
             term.textContent = entry.word;
@@ -165,21 +204,16 @@ function displayDictionary(entries) {
 
             entryDiv.appendChild(categoryContainer);
 
-            // Create and append the definition
             let definition = document.createElement('p');
             definition.className = 'definition';
             definition.innerHTML = `${entry.definition}`;
             entryDiv.appendChild(definition);
 
-            // Create and append the example, if it exists
-            if (entry.example) {
-                let example = document.createElement('p');
-                example.className = 'example';
-                example.innerHTML = `<strong>Příklad:</strong> ${entry.example}`;
-                entryDiv.appendChild(example);
-            }
+            let example = document.createElement('p');
+            example.className = 'example';
+            example.innerHTML = `<strong>Příklad:</strong> ${entry.example}`;
+            entryDiv.appendChild(example);
 
-            // Create and append the note, if it exists
             if (entry.note) {
                 let note = document.createElement('p');
                 note.className = 'note';
@@ -187,7 +221,6 @@ function displayDictionary(entries) {
                 entryDiv.appendChild(note);
             }
 
-            // Append the entire entry to the letter section
             letterSection.appendChild(entryDiv);
         });
 
@@ -219,39 +252,9 @@ function adjustDictionaryPosition() {
     document.getElementById('dictionary').style.marginTop = menuHeightFromTop + 'px';
 }
 
-let isFirstLoad = true; // Flag to track the initial load
-
-function disableTransitionsTemporarily() {
-    const elements = [document.getElementById('categoryMenu'), document.getElementById('dictionary'), document.getElementById('container')];
-    elements.forEach(el => {
-        if (el) {
-            el.style.transition = 'none';
-        }
-    });
-}
-
-function restoreTransitions() {
-    const elements = [document.getElementById('categoryMenu'), document.getElementById('dictionary'), document.getElementById('container')];
-    elements.forEach(el => {
-        if (el) {
-            el.style.transition = '';
-        }
-    });
-}
-
 function adjustLayout() {
-    if (isFirstLoad) {
-        disableTransitionsTemporarily();
-    }
-
     adjustCategoryMenuPosition();
     adjustDictionaryPosition();
-
-    if (isFirstLoad) {
-        // Restore transitions after a short delay
-        setTimeout(restoreTransitions, 50); // 50ms delay
-        isFirstLoad = false;
-    }
 }
 
 window.onload = adjustLayout;
@@ -264,54 +267,10 @@ window.onresize = function () {
 };
 
 sortData();
-createCategoryMenu()
+createCategoryMenu();
+setupCategoryToggle();
 filterByCategory(allCategoryName);
 
-let categoriesVisible = true; // State to track visibility of categories
+
 
 const longestAnimationDuration = 350;
-
-document.getElementById('categoryToggle').addEventListener('click', function () {
-    const menu = document.getElementById('categoryMenu');
-    const categoryItems = menu.querySelectorAll('.menu-item');
-
-    if (categoriesVisible) {
-        // Hide category items with a smooth transition
-        categoryItems.forEach(item => item.classList.add('hidden'));
-    } else {
-        // Show category items with a smooth transition
-        categoryItems.forEach(item => item.classList.remove('hidden'));
-    }
-
-    categoriesVisible = !categoriesVisible; // Toggle the state
-    this.classList.toggle('rotated'); // Rotate the toggle button
-
-    setTimeout(() => {
-        adjustDictionaryPosition();
-    }, longestAnimationDuration);
-});
-
-function letterToggleClick() {
-    return function () {
-        const menu = document.getElementById('letterMenu');
-        const letterItems = menu.querySelectorAll('.menu-item');
-
-        if (lettersVisible) {
-            // Hide category items with a smooth transition
-            letterItems.forEach(item => item.classList.add('hidden'));
-        } else {
-            // Show category items with a smooth transition
-            letterItems.forEach(item => item.classList.remove('hidden'));
-        }
-
-        lettersVisible = !lettersVisible; // Toggle the state
-        this.classList.toggle('rotated'); // Rotate the toggle button
-
-        setTimeout(() => {
-            adjustCategoryMenuPosition();
-            setTimeout(() => {
-                adjustDictionaryPosition();
-            }, longestAnimationDuration);
-        }, longestAnimationDuration);
-    };
-}
