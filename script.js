@@ -55,7 +55,6 @@ function filterByCategory(category) {
     // No idea, this just makes it work
     setTimeout(adjustCategoryMenuPosition, 100);
     setTimeout(adjustDictionaryPosition, 400);
-    setTimeout(adjustContainerHeight, 500);
 
     // Wait for the next frame, then wait for another frame, then scroll
     requestAnimationFrame(() => {
@@ -220,13 +219,6 @@ function adjustDictionaryPosition() {
     document.getElementById('dictionary').style.marginTop = menuHeightFromTop + 'px';
 }
 
-function adjustContainerHeight() {
-    var dictionary = document.getElementById('dictionary');
-    var container = document.getElementById('container');
-    var contentHeight = dictionary.scrollHeight;
-    container.style.height = (contentHeight + 550) + 'px';
-}
-
 let isFirstLoad = true; // Flag to track the initial load
 
 function disableTransitionsTemporarily() {
@@ -254,7 +246,6 @@ function adjustLayout() {
 
     adjustCategoryMenuPosition();
     adjustDictionaryPosition();
-    adjustContainerHeight();
 
     if (isFirstLoad) {
         // Restore transitions after a short delay
@@ -297,7 +288,6 @@ document.getElementById('categoryToggle').addEventListener('click', function () 
 
     setTimeout(() => {
         adjustDictionaryPosition();
-        setTimeout(adjustContainerHeight, longestAnimationDuration);
     }, longestAnimationDuration);
 });
 
@@ -321,9 +311,6 @@ function letterToggleClick() {
             adjustCategoryMenuPosition();
             setTimeout(() => {
                 adjustDictionaryPosition();
-                setTimeout(() => {
-                    adjustContainerHeight();
-                }, longestAnimationDuration);
             }, longestAnimationDuration);
         }, longestAnimationDuration);
     };

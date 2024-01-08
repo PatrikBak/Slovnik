@@ -5,6 +5,8 @@
     max-width: 100%;
     width: 800px;
     transition: height 0.3s ease;
+    min-height: auto;
+    padding-bottom: 500px;
 }
 
 @media (max-width: 800px) {
