@@ -245,9 +245,47 @@ function adjustDictionaryPosition() {
     document.getElementById('dictionary').style.marginTop = menuHeightFromTop + 'px';
 }
 
+// Flag to track whether the first load has happened
+let isFirstLoadPending = true;
+
 function adjustLayout() {
-    setTimeout(adjustCategoryMenuPosition, 150);
-    setTimeout(adjustDictionaryPosition, 450);
+    if (isFirstLoadPending) {
+        disableTransitionsTemporarily();
+        adjustCategoryMenuPosition();
+        adjustDictionaryPosition();
+        setTimeout(restoreTransitions, 50);
+        isFirstLoadPending = false;
+    }
+    else {
+        setTimeout(adjustCategoryMenuPosition, 150);
+        setTimeout(adjustDictionaryPosition, 450);
+    }
+}
+
+function disableTransitionsTemporarily() {
+    const elements = [
+        document.getElementById('categoryMenu'),
+        document.getElementById('dictionary'),
+        document.getElementById('container')
+    ];
+    elements.forEach(element => {
+        if (element) {
+            element.style.transition = 'none';
+        }
+    });
+}
+
+function restoreTransitions() {
+    const elements = [
+        document.getElementById('categoryMenu'),
+        document.getElementById('dictionary'),
+        document.getElementById('container')
+    ];
+    elements.forEach(element => {
+        if (element) {
+            element.style.transition = '';
+        }
+    });
 }
 
 window.onload = adjustLayout;
