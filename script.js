@@ -71,7 +71,7 @@ function filterByCategory(category) {
 
 // Function to create the A-Z menu
 function createLetterMenu(entries) {
-    const menu = document.getElementById('menu');
+    const menu = document.getElementById('letterMenu');
     menu.innerHTML = ''
     const uniqueLetters = new Set();
 
@@ -209,7 +209,7 @@ function categorizeEntriesByLetter(entries) {
 }
 
 function adjustCategoryMenuPosition() {
-    var menuHeight = document.getElementById('menu').offsetHeight + 25;
+    var menuHeight = document.getElementById('letterMenu').offsetHeight + 25;
     var categoryMenu = document.getElementById('categoryMenu');
     categoryMenu.style.marginTop = menuHeight + 'px';
 }
@@ -303,7 +303,7 @@ document.getElementById('categoryToggle').addEventListener('click', function () 
 
 function letterToggleClick() {
     return function () {
-        const menu = document.getElementById('menu');
+        const menu = document.getElementById('letterMenu');
         const letterItems = menu.querySelectorAll('.menu-item');
 
         if (lettersVisible) {
